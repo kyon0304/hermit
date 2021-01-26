@@ -492,6 +492,7 @@ hr.post-end {
     height: auto;
     margin: 0;
     text-align: center;
+    position: relative;
 
     p {
       font-size: .8em;
@@ -517,6 +518,7 @@ hr.post-end {
   }
 
   img {
+    // position: relative;
     display: block;
     max-width: 100%;
     height: auto;
