@@ -1,0 +1,154 @@
+.main-content {
+  grid-template-columns: 1fr 20em;
+  display: grid;
+  max-width: 100em;
+  width: 100%;
+  margin: 0 auto;
+}
+
+main > aside {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+#TableOfContents {
+  font-size: .9em;
+  @include dimmed;
+
+  ul {
+    padding-left: 1em;
+    margin: 0;
+    li ul {
+      margin-left: 0.8em;
+    }
+  }
+
+  &>ul {
+    list-style-type: none;
+
+    ul ul {
+      font-size: .9em;
+    }
+  }
+
+  a {
+    color: $link-text-highlight;
+  }
+
+  a:hover {
+    border-bottom: $theme 1px solid;
+    color: $link-text;
+  }
+  .active > a {
+    border-bottom: $theme 1px solid;
+    color: $link-text;
+  }
+}
+
+aside nav a {
+  transition: all 100ms ease-in-out;
+}
+
+// .post-toc {
+//     position: absolute;
+//     top: 128px;
+//     width: 240px;
+//     margin-left: -30px;
+//     padding: 5px;
+//     //font-family: $global-serif-font-family;
+//     box-sizing: border-box;
+  
+//     .post-toc-title {
+//       margin: 0 10px;
+//       font-size: 0.9em;
+//       font-weight: 400;
+//       text-transform: uppercase;
+//     }
+  
+//     .post-toc-content {
+//       font-size: 0.9em;
+  
+//       &.always-active ul {
+//         display: block;
+//       }
+  
+//       >nav>ul {
+//         margin: 10px 0;
+//       }
+  
+//       ul {
+//         padding-left: 20px;
+//         list-style: none;
+  
+//         ul {
+//           padding-left: 15px;
+//           display: none;
+//         }
+  
+//         .has-active > ul {
+//           display: block;
+//         }
+//       }
+  
+//       .toc-link.active {
+//         color: $theme-color;
+//       }
+//     }
+//   }
+  
+
+// ===================================================
+//   @include max-screen(1240px) {
+//     .post-toc {
+//       display: none;
+//     }
+//   }
+
+//   @media screen and (max-width: 1240px) {
+//     .post-toc {
+//         display: none;
+//       }
+//   }
+  
+
+  /**
+  #toc {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  display: none;
+}
+
+.toc-title {
+  margin-left: 1em;
+  margin-bottom: .5em;
+  font-size: .8em;
+  font-weight: bold;
+}
+
+#TableOfContents {
+  font-size: .9em;
+  @include dimmed;
+
+  ul {
+    padding-left: 1em;
+    margin: 0;
+    li ul {
+      margin-left: 0.8em;
+    }
+  }
+
+  &>ul {
+    list-style-type: none;
+
+    ul ul {
+      font-size: .9em;
+    }
+  }
+
+  a:hover {
+    border-bottom: $theme 1px solid;
+  }
+}
+  */

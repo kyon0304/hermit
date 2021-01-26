@@ -1,25 +1,26 @@
 @import "predefined.scss";
 @import "normalize.scss";
-@import "syntax.scss";
 @import "animate.scss";
+@import "code.scss";
+@import "toc.scss";
 
 /* Webkit Scrollbar Customize */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  background: $midnightblue;
+  background: $scroll-backgroud;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: $scroll-bar-backgroud;
 
   &:hover {
-    background: $text;
+    background: $scroll-bar-thumb;
   }
 }
 
 html {
-  background: $light-grey;
+  background: $backgound;
   line-height: 1.6;
   letter-spacing: .06em;
   scroll-behavior: smooth;
@@ -34,39 +35,17 @@ textarea {
   font-family: $fonts;
 }
 
-pre,
-code,
-pre tt {
-  font-family: $code-fonts;
+::selection {
+  background-color: $theme;
 }
 
-pre {
-  padding: .7em 1.1em;
-  overflow: auto;
-  font-size: .9em;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre;
-  color: #eee;
-  background: $midnightblue;
-  border-radius: 4px;
-  // -webkit-overflow-scrolling: touch;
-
-  code {
-    padding: 0;
-    margin: 0;
-    background: $midnightblue;
-  }
+.utterances {
+  max-width: 960px;
 }
 
-code {
-  color: #eee;
-  background: $highlight-grey;
-  border-radius: 3px;
-  padding: 0 3px;
-  margin: 0 4px;
-  word-wrap: break-word;
-  letter-spacing: normal;
+h1, h2, h3 {
+  color: $head;
+  font-weight: normal;
 }
 
 blockquote {
@@ -86,7 +65,7 @@ blockquote {
 }
 
 a {
-  color: $text;
+  color: $link-text;
   text-decoration: none;
   border: none;
   transition-property: color;
@@ -94,8 +73,7 @@ a {
   transition-timing-function: ease-out;
 
   &:hover {
-    color: #fff;
-    text-shadow: 0 0 1px #fff;
+    color: $link-text-highlight;
   }
 }
 
@@ -106,25 +84,6 @@ hr {
   background: transparent;
   width: 50%;
   margin: 1.8em auto;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  empty-cells: show;
-  width: 100%;
-  max-width: 100%;
-
-  th,
-  td {
-    padding: 1.5%;
-    border: 1px solid;
-  }
-
-  th {
-    font-weight: 700;
-    vertical-align: bottom;
-  }
 }
 
 .section-inner {
@@ -151,17 +110,6 @@ table {
 
 .desktop-only, .desktop-only-ib {
   display: none;
-}
-
-// Code copy buttons
-//
-
-.highlight {
-    position: relative;
-}
-
-.highlight pre {
-    padding-right: 75px;
 }
 
 .highlight-copy-btn {
@@ -229,8 +177,7 @@ table {
   width: 100%;
   box-sizing: border-box;
   box-shadow: -1px -2px 3px rgba(0, 0, 0, 0.45);
-  background-color: $dark-grey;
-  animation-duration: .3s;
+  background-color: $theme;
 }
 
 .hdr-wrapper {
@@ -253,7 +200,7 @@ table {
 
     .has-children {
       padding-right: .5em;
-      border-right: 2px solid $highlight-grey;
+      border-right: 2px solid $theme;
     }
 
     .sub-menu > a{
@@ -302,7 +249,7 @@ table {
   z-index: 1;
   box-sizing: border-box;
   box-shadow: -1px -2px 3px 0px rgba(0, 0, 0, 0.45);
-  background-color: $dark-grey;
+  background-color: $theme;
 
   ul {
     list-style: none;
@@ -469,7 +416,7 @@ p.img-404 {
   }
 
   .post-item {
-    border-bottom: 1px $highlight-grey dashed;
+    border-bottom: 1px $theme dashed;
 
     a {
       display: flex;
@@ -644,13 +591,7 @@ a.footnote-ref {
   text-decoration: none;
   padding: 2px;
   border-radius: 2px;
-  background-color: $midnightblue;
-
-  &:hover{
-    box-shadow: none;
-    background-color: $theme;
-    transition-property: background-color;
-  }
+  background-color: $theme;
 }
 
 .post-info {
@@ -679,49 +620,11 @@ a.footnote-ref {
   }
 }
 
-#toc {
-  position: fixed;
-  left: 50%;
-  top: 0;
-  display: none;
-}
-
-.toc-title {
-  margin-left: 1em;
-  margin-bottom: .5em;
-  font-size: .8em;
-  font-weight: bold;
-}
-
-#TableOfContents {
-  font-size: .8em;
-  @include dimmed;
-
-  ul {
-    padding-left: 1em;
-    margin: 0;
-  }
-
-  &>ul {
-    list-style-type: none;
-
-    ul ul {
-      font-size: .9em;
-    }
-  }
-
-  a:hover {
-    border-bottom: $theme 1px solid;
-  }
-}
-
-
 .post-nav {
   display: flex;
   justify-content: space-between;
   margin-top: 1.5em;
   margin-bottom: 2.5em;
-  font-size: 1.2em;
 
   a {
     flex-basis: 50%;
@@ -742,7 +645,7 @@ a.footnote-ref {
   padding: .8em;
   margin-top: 1.5em;
   font-size: .8rem;
-  border: 3px dashed rgba(255, 255, 255, .2);
+  border: 1px dashed rgba(0, 0, 0, .2);
   border-radius: 5px;
 
   h2{
@@ -811,12 +714,6 @@ a.footnote-ref {
   hr.post-end {
     width: 30%;
   }
-
-  #toc {
-    top: 13em;
-    margin-left: 370px;
-    max-width: 220px;
-  }
 }
 
 @media (min-width: 1800px) {
@@ -849,12 +746,6 @@ a.footnote-ref {
 
   hr.post-end {
     width: 30%;
-  }
-
-  #toc {
-    top: 15em;
-    margin-left: 490px;
-    max-width: 300px;
   }
 }
 
