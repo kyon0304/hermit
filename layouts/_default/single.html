@@ -4,9 +4,9 @@
 
 {{ define "main" }}
 	{{- if (and .Site.Params.toc (ne .Params.toc false)) }}
-	<main class="site-main main-content section-inner animated fadeIn faster">
+	<main class="site-main main-content section-inner animated fadeIn faster" id = "site-main">
 	{{- else }}
-	<main class="site-main section-inner animated fadeIn faster">
+	<main class="site-main section-inner animated fadeIn faster" id = "site-main">
 	{{- end }}
 		<article class="thin">
 			<header class="post-header">
